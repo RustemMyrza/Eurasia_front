@@ -81,7 +81,7 @@ function MainContent() {
     let serviceName = null;
     // let branchName = null;
 
-    if (serviceId !== 1005) {
+    if (serviceId !== 5) {
       serviceName = getParentName(services, serviceId, 'queueId', i18n.language);
     }
 
@@ -195,9 +195,9 @@ function MainContent() {
     return (
         <div className='main'>
             <main>
-            <h2 className='main-title'>{ serviceId !== '1005' ? serviceName : t("mainTitleInstruction") }</h2>
+            <h2 className='main-title'>{ serviceId !== '5' ? serviceName : t("mainTitleInstruction") }</h2>
                 {/* <h4 className='branch-title'>{ branchName ? branchName : 'Филиал не найден' }</h4> */}
-                {serviceId !== '1005' && (
+                {serviceId !== '5' && (
                   <button
                     onClick={() => navigate(-1)}
                     className="go-back">
@@ -208,7 +208,7 @@ function MainContent() {
                 { visibleServices.length > 0 ? visibleServices.map((service) => (
                   <ServiceType
                     serviceText={ i18n.language === 'ru' ? service.name_ru : service.name_kz}
-                    queueId={service.queueId} // Данные с API
+                    queueId={service.queueId}
                     serviceId={service.parentId}
                     link={`/branch/${branchId}/service/${service.queueId}`}
                   />
